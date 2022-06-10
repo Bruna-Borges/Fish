@@ -7,6 +7,8 @@ public class Flock : MonoBehaviour
     //
     public FlockManager myManager;
     float speed;
+    Vector3 groupCenter;
+
     //
     void Start()
     {
@@ -26,6 +28,7 @@ public class Flock : MonoBehaviour
 
         Vector3 vcenter = Vector3.zero;
         Vector3 vavoid = Vector3.zero;
+
         float gSpeed = 0.01f;
         float nDistance;
         int groupSize = 0;
@@ -62,5 +65,7 @@ public class Flock : MonoBehaviour
                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), myManager.rotationSpeed * Time.deltaTime);
             }
         }
+
+        groupCenter = vcenter;
     }
 }
